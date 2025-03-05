@@ -33,8 +33,7 @@ class Database {
 $user= new Database();
 
 $data=$user->getConnection();
-if($data){
-    echo"connected"."<br>";
-}
+
+  
 
 ?>

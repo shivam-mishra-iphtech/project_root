@@ -4,59 +4,108 @@ require_once '../layouts/header.php';
 ?>  
 <style>
     .content-container {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-        margin: 2rem auto;
-        padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 90%;
+    width: 100%;
+}
+
+.form-body {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.1rem;
+}
+
+.form-control {
+    width: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+    min-height: 1.2em;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.btn-success {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-container {
+        padding: 1.5rem;
+        margin: 1rem;
+        max-width: 95%;
     }
 
     .form-body {
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 10px;
-        padding: 2rem;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        margin: 1rem 0;
-    }
-
-    .form-label {
-        font-weight: 500;
-        color: #333;
-        margin-bottom: 0.1rem;
+        padding: 1.5rem;
     }
 
     .form-control {
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .form-control:focus {
-        border-color: #86b7fe;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    }
-
-    .error {
-        color: #dc3545;
-        font-size: 0.875rem;
-        margin-top: 0.25rem;
-        display: block;
-        min-height: 1.2em;
-    }
-
-    .is-invalid {
-        border-color: #dc3545 !important;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.9rem;
     }
 
     .btn-success {
-        padding: 0.75rem 2rem;
-        border-radius: 8px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        margin-top: 1.5rem;
+        padding: 0.65rem 1.5rem;
     }
+}
+
+@media (max-width: 480px) {
+    .content-container {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .form-body {
+        padding: 1rem;
+    }
+
+    .form-control {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-success {
+        padding: 0.6rem 1.25rem;
+    }
+}
+
 </style>
 
 <section>
@@ -158,7 +207,7 @@ require_once '../layouts/header.php';
                             <!-- Submit Button -->
                             <div class="col-12 text-center">
                                 <button class="btn btn-success px-5 py-2" type="submit" name="add-user">
-                                    <i class="bi bi-upload me-2"></i>Add Product
+                                    <i class="bi bi-upload me-2"></i>Submit
                                 </button>
                             </div>
                         </div>
