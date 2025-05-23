@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony Waves | Music Channel</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+       /* General Styles */
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --dark-color: #2d3436;
+    --light-color: #f5f6fa;
+    --accent-color: #fd79a8;
+    --text-color: #333;
+    --text-light: #777;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.btn {
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #5a4bd1;
+    border-color: #5a4bd1;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader .loader {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.music-bar {
+    width: 8px;
+    height: 40px;
+    background: var(--primary-color);
+    margin: 0 3px;
+    animation: equalize 1.5s infinite ease-in-out;
+    transform-origin: bottom;
+}
+
+.music-bar:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.music-bar:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.music-bar:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.music-bar:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+@keyframes equalize {
+    0%, 100% {
+        transform: scaleY(0.3);
+    }
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+/* Navigation */
+.navbar {
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 10px 0;
+    background-color: rgba(45, 52, 54, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand i {
+    color: var(--primary-color);
+}
+
+.nav-link {
+    font-weight: 600;
+    margin: 0 10px;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    min-height: 700px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(108, 92, 231, 0.3), rgba(253, 121, 168, 0.3));
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btns {
+    margin-top: 30px;
+}
+
+.hero-audio-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.wave {
+    height: 100px;
+    flex: 1;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 20, 50 50 T 100 50" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>') repeat-x;
+    background-size: 100px 100px;
+    animation: wave 10s linear infinite;
+}
+
+.wave1 {
+    animation-delay: 0s;
+    opacity: 0.5;
+}
+
+.wave2 {
+    animation-delay: -2.5s;
+    opacity: 0.3;
+}
+
+.wave3 {
+    animation-delay: -5s;
+    opacity: 0.2;
+}
+
+.wave4 {
+    animation-delay: -7.5s;
+    opacity: 0.1;
+}
+
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+/* About Section */
+.about-img-container {
+    position: relative;
+}
+
+.animate-img {
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.music-note {
+    position: absolute;
+    color: var(--primary-color);
+    font-size: 2rem;
+    animation: float-note 4s ease-in-out infinite;
+}
+
+.note-1 {
+    top: -20px;
+    left: -20px;
+    animation-delay: 0s;
+}
+
+.note-2 {
+    bottom: -20px;
+    right: -20px;
+    animation-delay: 1s;
+}
+
+@keyframes float-note {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Video Cards */
+.video-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.video-card:hover .video-thumbnail img {
+    transform: scale(1.1);
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.video-card:hover .play-btn {
+    opacity: 1;
+}
+
+.play-btn i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+.duration {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Playlist Cards */
+.playlist-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.playlist-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.playlist-cover {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.playlist-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.playlist-card:hover .playlist-cover img {
+    transform: scale(1.1);
+}
+
+.playlist-card .play-btn {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+}
+
+.playlist-card:hover .play-btn {
+    opacity: 1;
+}
+
+.playlist-info {
+    padding: 20px;
+}
+
+.playlist-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.playlist-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* Testimonials */
+.testimonial-slider {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testimonial-item {
+    padding: 0 15px;
+}
+
+.testimonial-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: rgba(108, 92, 231, 0.1);
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.author-info h5 {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.author-info p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* Contact Section */
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.info-content h5 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.contact-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+}
+
+/* Newsletter */
+.newsletter-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.newsletter-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.newsletter-form .form-control {
+    height: 50px;
+    border-radius: 30px 0 0 30px;
+    border: none;
+}
+
+.newsletter-form .btn {
+    border-radius: 0 30px 30px 0;
+    padding: 0 25px;
+}
+
+/* Footer */
+footer {
+    position: relative;
+}
+
+.footer-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.footer-brand i {
+    color: var(--primary-color);
+}
+
+.footer-title {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #aaa;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.footer-social {
+    display: flex;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.footer-bottom-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-bottom-links li {
+    margin: 0 10px;
+}
+
+.footer-bottom-links a {
+    color: #aaa;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: white;
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #5a4bd1;
+    transform: translateY(-5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1199.98px) {
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    section {
+        padding: 80px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.3rem;
+    }
+    
+    .navbar {
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero-section {
+        min-height: 600px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .hero-btns .btn {
+        display: block;
+        width: 80%;
+        margin: 0 auto 15px;
+    }
+    
+    .stats-container {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .stat-item {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    section {
+        padding: 50px 0;
+    }
+    
+    .hero-section {
+        min-height: 500px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .testimonial-content {
+        padding: 20px;
+    }
+    
+    .footer-bottom-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-bottom-links li {
+        margin: 5px 0;
+    }
+} 
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="music-bar"></div>
+            <div class="music-bar"></div>
+            <div class="music-bar"></div>
+            <div class="music-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-music me-2"></i>Harmony Waves
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#videos">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#playlists">Playlists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="animate__animated animate__fadeInDown">Harmony Waves</h1>
+                    <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Where Music Meets Soul</p>
+                    <div class="hero-btns animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="#videos" class="btn btn-primary btn-lg me-3">Watch Videos</a>
+                        <a href="#" class="btn btn-outline-light btn-lg">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-audio-wave">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-img-container">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="About Harmony Waves" class="img-fluid rounded shadow-lg animate-img">
+                        <div class="music-note note-1">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="music-note note-2">
+                            <i class="fas fa-music"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">About Our Channel</h2>
+                    <p class="lead">Discover the rhythm of your soul with Harmony Waves.</p>
+                    <p>We create high-quality music content that resonates with listeners worldwide. Our channel features a diverse range of genres, from soothing melodies to energetic beats.</p>
+                    <div class="stats-container mt-4">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="250">0</div>
+                            <div class="stat-label">Videos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="500000">0</div>
+                            <div class="stat-label">Subscribers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="10000000">0</div>
+                            <div class="stat-label">Views</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-4">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Latest Videos</h2>
+                <p class="section-subtitle">Check out our newest releases</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Video 1" class="img-fluid">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="duration">3:45</div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Summer Vibes Mix</h3>
+                            <div class="meta">
+                                <span><i class="fas fa-eye me-1"></i> 250K views</span>
+                                <span><i class="fas fa-calendar-alt me-1"></i> 2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Video 2" class="img-fluid">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="duration">5:22</div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Chill Lo-Fi Beats</h3>
+                            <div class="meta">
+                                <span><i class="fas fa-eye me-1"></i> 180K views</span>
+                                <span><i class="fas fa-calendar-alt me-1"></i> 1 week ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Video 3" class="img-fluid">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="duration">4:15</div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Piano Relaxation</h3>
+                            <div class="meta">
+                                <span><i class="fas fa-eye me-1"></i> 320K views</span>
+                                <span><i class="fas fa-calendar-alt me-1"></i> 2 weeks ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary btn-lg">View All Videos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playlists Section -->
+    <section id="playlists" class="py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Featured Playlists</h2>
+                <p class="section-subtitle">Curated music collections for every mood</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="playlist-card">
+                        <div class="playlist-cover">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Workout Mix" class="img-fluid">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="playlist-info">
+                            <h3>Workout Energy</h3>
+                            <p>25 tracks • 1.5 hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="playlist-card">
+                        <div class="playlist-cover">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Focus Flow" class="img-fluid">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="playlist-info">
+                            <h3>Focus Flow</h3>
+                            <p>18 tracks • 1.2 hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="playlist-card">
+                        <div class="playlist-cover">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sleep Well" class="img-fluid">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="playlist-info">
+                            <h3>Sleep Well</h3>
+                            <p>12 tracks • 8 hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="playlist-card">
+                        <div class="playlist-cover">
+                            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Road Trip" class="img-fluid">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="playlist-info">
+                            <h3>Road Trip</h3>
+                            <p>30 tracks • 2 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">What Our Listeners Say</h2>
+                <p class="section-subtitle">Feedback from our community</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-slider">
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">Harmony Waves has completely changed my music experience. The quality and variety are unmatched!</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="rounded-circle">
+                                    <div class="author-info">
+                                        <h5>Sarah J.</h5>
+                                        <p>Premium Subscriber</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">I start every morning with Harmony Waves. Their playlists keep me energized and focused throughout the day.</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T." class="rounded-circle">
+                                    <div class="author-info">
+                                        <h5>Michael T.</h5>
+                                        <p>Daily Listener</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="testimonial-text">The sleep playlist has helped me overcome my insomnia. Thank you for such amazing content!</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily R." class="rounded-circle">
+                                    <div class="author-info">
+                                        <h5>Emily R.</h5>
+                                        <p>Long-time Fan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="lead">Have questions or suggestions? We'd love to hear from you!</p>
+                    <div class="contact-info mt-4">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Email</h5>
+                                <p>contact@harmonywaves.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Phone</h5>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Location</h5>
+                                <p>123 Music Street, Los Angeles, CA 90001</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-spotify"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h3 class="mb-4">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p class="mb-0">Get the latest updates, new releases and exclusive content straight to your inbox.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                            <button class="btn btn-dark" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="footer-brand">
+                        <i class="fas fa-music me-2"></i>Harmony Waves
+                    </h4>
+                    <p class="mt-3">Bringing the world together through the power of music. Quality content for every listener.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#videos">Videos</a></li>
+                        <li><a href="#playlists">Playlists</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="footer-title">Genres</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Pop</a></li>
+                        <li><a href="#">Rock</a></li>
+                        <li><a href="#">Electronic</a></li>
+                        <li><a href="#">Classical</a></li>
+                        <li><a href="#">Jazz</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Connect</h5>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-outline-light btn-sm me-2">Premium</a>
+                        <a href="#" class="btn btn-outline-light btn-sm">Merch</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Harmony Waves. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="footer-bottom-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Preloader
+    const preloader = document.querySelector('.preloader');
+    window.addEventListener('load', function() {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('active');
+        } else {
+            backToTop.classList.remove('active');
+        }
+    });
+
+    backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Animate stats counter
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length > 0) {
+        const animateStats = () => {
+            statNumbers.forEach(stat => {
+                const target = +stat.getAttribute('data-count');
+                const count = +stat.innerText;
+                const increment = target / 100;
+                
+                if (count < target) {
+                    stat.innerText = Math.ceil(count + increment);
+                    setTimeout(animateStats, 20);
+                } else {
+                    stat.innerText = target.toLocaleString();
+                }
+            });
+        };
+        
+        // Start animation when stats are in view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelector('.stats-container').querySelectorAll('.stat-number').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+    }
+
+    // Testimonial slider
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    if (testimonialSlider) {
+        let currentIndex = 0;
+        const testimonials = testimonialSlider.querySelectorAll('.testimonial-item');
+        const totalTestimonials = testimonials.length;
+        
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        function nextTestimonial() {
+            currentIndex = (currentIndex + 1) % totalTestimonials;
+            showTestimonial(currentIndex);
+        }
+        
+        // Initialize
+        showTestimonial(0);
+        
+        // Auto rotate
+        setInterval(nextTestimonial, 5000);
+    }
+
+    // Animation on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-img, .section-title, .section-subtitle, .video-card, .playlist-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    };
+    
+    animateOnScroll();
+
+    // Audio wave animation for hero section
+    const waves = document.querySelectorAll('.wave');
+    waves.forEach((wave, index) => {
+        wave.style.animationDelay = `${index * 0.5}s`;
+    });
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = new FormData(this);
+            
+            // Here you would typically send the data to a server
+            // For demo purposes, we'll just show an alert
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    }
+});
+
+// Initialize Bootstrap tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+    </script>
+</body>
+</html>
