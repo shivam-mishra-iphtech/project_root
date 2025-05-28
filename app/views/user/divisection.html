@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taxi Fleet Layout</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Sora&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #222;
+    }
+    h5 {
+      font-family: 'Sora', sans-serif;
+      margin-bottom: 1px;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    p {
+      font-family: 'Manrope', sans-serif;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      font-size: 0.95rem;
+      color: #c3c3c3;
+    }
+    .card {
+      background-color: #383838;
+      border: none;
+      border-radius: 10px;
+      height: 100%;
+    }
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1rem;
+      gap: 1px;
+      height: 100%;
+    }
+    .card-body img {
+      object-fit: contain;
+      width: 100%;
+      height: auto;
+    }
+    .g-20 {
+      --bs-gutter-x: 20px;
+      --bs-gutter-y: 20px;
+    }
+    @media (max-width: 992px) {
+      .col-lg-5, .col-lg-3, .col-lg-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      .card-body img {
+        max-height: 100px;
+      }
+      h5 {
+        font-size: 1rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid mx-0 px-3 py-3" style="width:100%; max-width:1320px;">
+    <div class="row g-20 d-flex">
+      <!-- Left Column -->
+      <div class="col-12 col-lg-5">
+        <div class="row g-20">
+          <div class="col-12">
+            <div class="card h-100">
+              <div class="card-body text-start">
+                <h5>Your Taxi Fleet:</h5>
+                <p>An app like Uber, but fully yours, built for your drivers & customers.</p>
+                <div class="text-end">
+                  <img src="http://localhost/shivam/projects/sourcecode/iphTechnologies/wp-content/uploads/2025/05/taxi-service-woman-renting-automobile-city-street-carsharing-rental-auto-pin-smartphone-application-order-vector-illustration-1.png" alt="Taxi Service Illustration" class="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card h-100">
+              <div class="card-body text-start">
+                <h5>Medical Support:</h5>
+                <p>Integrated emergency ambulance dispatch tailored to your fleet.</p>
+                <img src="http://localhost/shivam/projects/sourcecode/iphTechnologies/wp-content/uploads/2025/05/Ambulance.png" alt="Ambulance" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card h-100">
+              <div class="card-body text-start">
+                <h5>Corporate Rides:</h5>
+                <p>Custom ride solutions for companies and business clients.</p>
+                <img src="http://localhost/shivam/projects/sourcecode/iphTechnologies/wp-content/uploads/2025/05/Group-3422.png" alt="Corporate Rides" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Column -->
+      <div class="col-12 col-lg-3">
+        <div class="card h-100">
+          <div class="card-body text-start">
+            <h5>Luxury Rides:</h5>
+            <p>Premium car categories for high-end customers.</p>
+            <img src="http://localhost/shivam/projects/sourcecode/iphTechnologies/wp-content/uploads/2025/05/Group-3420.png" alt="Luxury Rides" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-12 col-lg-4">
+        <div class="row g-20">
+          <div class="col-12">
+            <div class="card h-100">
+              <div class="card-body text-start">
+                <h5>Driver Insights:</h5>
+                <p>Live tracking, earnings, and rating dashboard for drivers.</p>
+                <img src="http://localhost/shivam/projects/sourcecode/iphTechnologies/wp-content/uploads/2025/05/Group-3421.png" alt="Driver Insights" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card h-100">
+              <div class="card-body text-start">
+                <h5>Smart Analytics:</h5>
+                <p>AI-powered analytics to grow and optimize your fleet.</p>
+                <img src="http://localhost/shivam/projects/sourcecode/iphTechnologies/wp-content/uploads/2025/05/5229-1.png" alt="Smart Analytics" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
