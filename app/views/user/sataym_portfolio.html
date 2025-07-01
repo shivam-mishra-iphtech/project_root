@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satyam Mishra | Clinical Application Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',  // Blue
+                        secondary: '#10B981', // Emerald
+                        accent: '#EC4899',   // Pink
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-20px)'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #3B82F6, #10B981, #EC4899);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3B82F6, #10B981, #EC4899);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active::after {
+            width: 100%;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3B82F6;
+            border: 3px solid #0f172a;
+        }
+
+        .timeline-connector {
+            position: absolute;
+            left: -23px;
+            top: 16px;
+            bottom: -16px;
+            width: 2px;
+            background: rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-darker text-gray-300 font-sans antialiased">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-dark bg-opacity-90 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Satyam.</a>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#publications" class="nav-link">Publications</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark py-4 px-6">
+            <ul class="space-y-4">
+                <li><a href="#home" class="block nav-link active">Home</a></li>
+                <li><a href="#about" class="block nav-link">About</a></li>
+                <li><a href="#experience" class="block nav-link">Experience</a></li>
+                <li><a href="#skills" class="block nav-link">Skills</a></li>
+                <li><a href="#publications" class="block nav-link">Publications</a></li>
+                <li><a href="#contact" class="block nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 md:pt-20 px-0 sm:px-0">
+        <div class="container mx-auto max-w-7xl px-0 py-0 md:py-24 flex flex-col md:flex-row items-center gap-2">
+            <!-- Text Content -->
+            <div class="md:w-1/2 lg:w-3/5 xl:w-1/2 space-y-6 md:space-y-8 text-center md:text-left">
+                <div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
+                        <span class="gradient-text">
+                            Satyam Mishra
+                        </span>
+                    </h1>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300">
+                        Clinical Application Specialist
+                    </h2>
+                </div>
+
+                <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto md:mx-0 leading-relaxed">
+                    Clinical diagnostics expert with 1 year in application support and 4.5 years in laboratory operations. 
+                    Specialized in Immunoassays, HPLC, Hematology, and Biochemistry with strong expertise in medical device troubleshooting and user training.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="px-8 py-3.5 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:opacity-90 transition-all 
+                           text-white shadow-lg shadow-primary/30 hover:shadow-primary/40 text-center">
+                        Get In Touch
+                    </a>
+                    <a href="#experience" class="px-8 py-3.5 border-2 border-primary/30 text-primary rounded-full font-medium hover:bg-primary/5 
+                           transition-all hover:border-primary/50 shadow hover:shadow-primary/20 text-center">
+                        View Experience
+                    </a>
+                </div>
+
+                <div class="flex justify-center md:justify-start gap-5 pt-4">
+                    <a href="http://www.linkedin.com/n/satyam-mishra-29a744202" target="_blank"
+                        class="text-gray-400 hover:text-primary transition-colors transform hover:scale-110">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="mailto:satyams1520@gmail.com" target="_blank"
+                        class="text-gray-400 hover:text-primary transition-colors transform hover:scale-110">
+                        <i class="fas fa-envelope text-2xl"></i>
+                        <span class="sr-only">Email</span>
+                    </a>
+                    <a href="tel:+919793934651"
+                        class="text-gray-400 hover:text-primary transition-colors transform hover:scale-110">
+                        <i class="fas fa-phone text-2xl"></i>
+                        <span class="sr-only">Phone</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image Content -->
+            <div class="md:w-1/2 lg:w-2/5 xl:w-1/2 flex justify-center relative">
+                <div class="relative w-full max-w-md xl:max-w-lg aspect-[9/11] group perspective-1000">
+                    <!-- Floating gradient background elements -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-70 z-0 animate-float"></div>
+                    
+                    <!-- Main image container with glass effect -->
+                    <div class="relative w-full h-full overflow-hidden rounded-2xl shadow-2xl glass-card 
+                            group-hover:border-primary/40 transition-all duration-500 transform group-hover:-translate-y-2 z-10">
+                        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
+                            <!-- Placeholder for your image -->
+                            <div class="text-4xl text-gray-500">Your Photo</div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/40 via-transparent to-transparent"></div>
+                    </div>
+
+                    <!-- Decorative floating elements -->
+                    <div class="absolute -bottom-3 -left-3 w-16 h-16 bg-accent/20 rounded-lg rotate-45 animate-float transition-all 
+                            duration-300 group-hover:opacity-80 z-20 hidden sm:block"></div>
+                    <div class="absolute -top-3 -right-3 w-12 h-12 bg-secondary/20 rounded-lg rotate-12 animate-float transition-all 
+                            duration-300 group-hover:opacity-80 z-20 hidden sm:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">About Me</span>
+            </h2>
+
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Profile Image -->
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-primary border-opacity-30 glass-card">
+                        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
+                            <!-- Placeholder for your image -->
+                            <div class="text-4xl text-gray-500">Your Photo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Content -->
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Professional Summary</h3>
+                    <p class="mb-6 text-gray-400">
+                        Clinical Application Specialist with expertise in diagnostic equipment and laboratory operations. 
+                        Proven track record in improving operational workflows, enhancing customer satisfaction, and delivering 
+                        effective cross-functional collaboration to meet clinical and business objectives.
+                    </p>
+                    <p class="mb-6 text-gray-400">
+                        Specialized in Immunoassays, HPLC, Hematology, and Biochemistry with strong capabilities in medical 
+                        device troubleshooting, user training, and technical support. Passionate about ensuring quality compliance 
+                        and optimizing laboratory processes.
+                    </p>
+
+                    <!-- Personal Info -->
+                    <div class="glass-card p-6 rounded-xl mb-8">
+                        <h4 class="text-lg font-semibold mb-4 text-primary">Personal Information</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-accent"></i>
+                                <span>satyams1520@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-3 text-accent"></i>
+                                <span>+91 9793934651</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-3 text-accent"></i>
+                                <span>Ayodhya, Uttar Pradesh (224118)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-briefcase mr-3 text-accent"></i>
+                                <span>Clinical Application Specialist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-darker">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">Education & Certifications</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- M.Sc Card -->
+                <div class="glass-card p-6 rounded-xl border border-gray-800 hover:border-primary transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mb-3">
+                                <i class="fas fa-graduation-cap text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary">Master of Science - Biotechnology</h3>
+                            <p class="text-gray-400 text-sm mt-1">Maharishi University of Information Technology</p>
+                        </div>
+                        <span class="bg-primary bg-opacity-20 text-primary text-xs px-3 py-1 rounded-full h-fit">2024 - Present</span>
+                    </div>
+                    <ul class="text-sm text-gray-400 space-y-3 mt-4 flex-grow">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-0.5"></i>
+                            <span>Advanced studies in clinical biotechnology</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent mr-3 mt-0.5"></i>
+                            <span>Research focus on diagnostic technologies</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- BMLT Card -->
+                <div class="glass-card p-6 rounded-xl border border-gray-800 hover:border-secondary transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <div class="w-12 h-12 bg-secondary bg-opacity-10 rounded-lg flex items-center justify-center mb-3">
+                                <i class="fas fa-microscope text-secondary text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-secondary">Bachelor's in Medical Laboratory Technology</h3>
+                            <p class="text-gray-400 text-sm mt-1">Galgotias University</p>
+                        </div>
+                        <span class="bg-secondary bg-opacity-20 text-secondary text-xs px-3 py-1 rounded-full h-fit">2022</span>
+                    </div>
+                    <ul class="text-sm text-gray-400 space-y-3 mt-4 flex-grow">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                            <span>Specialized in clinical diagnostics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                            <span>Laboratory techniques and instrumentation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Certifications Card -->
+                <div class="glass-card p-6 rounded-xl border border-gray-800 hover:border-accent transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <div class="w-12 h-12 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mb-3">
+                                <i class="fas fa-certificate text-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-accent">Professional Certifications</h3>
+                            <p class="text-gray-400 text-sm mt-1">Various Institutions</p>
+                        </div>
+                    </div>
+                    <ul class="text-sm text-gray-400 space-y-3 mt-4 flex-grow">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                            <span>Biomerieux Mini Vidas Training</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                            <span>ADVIA Centaur XP & QC Training</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-0.5"></i>
+                            <span>ERBA Hematology Analyzer Training</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Certifications -->
+            <div class="max-w-4xl mx-auto mt-12">
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4 text-center text-primary">Additional Certifications</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="glass-card px-4 py-2 rounded-full text-sm flex items-center">
+                            <i class="fas fa-vial mr-2 text-accent"></i> Immunoassay Systems
+                        </span>
+                        <span class="glass-card px-4 py-2 rounded-full text-sm flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-accent"></i> HPLC Operation
+                        </span>
+                        <span class="glass-card px-4 py-2 rounded-full text-sm flex items-center">
+                            <i class="fas fa-tint mr-2 text-accent"></i> Hematology Analyzers
+                        </span>
+                        <span class="glass-card px-4 py-2 rounded-full text-sm flex items-center">
+                            <i class="fas fa-flask mr-2 text-accent"></i> Biochemistry Instruments
+                        </span>
+                        <span class="glass-card px-4 py-2 rounded-full text-sm flex items-center">
+                            <i class="fas fa-tools mr-2 text-accent"></i> IVD Troubleshooting
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Professional Experience</span>
+                </h2>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    My career progression through leading healthcare and diagnostic companies
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="space-y-8 md:space-y-12 max-w-3xl mx-auto">
+                    <!-- Current Position -->
+                    <div class="relative pl-12 timeline-item">
+                        <div class="timeline-connector"></div>
+                        <div class="glass-card p-8 rounded-2xl shadow-xl border border-gray-700/60 hover:border-primary/40 transition-all duration-300">
+                            <div class="flex items-center mb-4">
+                                <div class="w-3 h-3 rounded-full bg-accent mr-3 animate-pulse"></div>
+                                <p class="text-sm font-semibold text-accent tracking-wider">CURRENT POSITION</p>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Area Manager - Scientific Support</h3>
+                            <h4 class="text-primary text-lg mb-4">Matrix Labs Diagnostic Pvt. Ltd (UP & Uttarakhand)</h4>
+                            <p class="text-gray-400 mb-6">Jun 2024 - Present</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Providing technical support to customers across Uttar Pradesh and Uttarakhand</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Conducting on-site product training and instrument validation</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Performing technical demonstrations and troubleshooting for diagnostic products</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Previous Positions -->
+                    <div class="relative pl-12 timeline-item">
+                        <div class="timeline-connector"></div>
+                        <div class="glass-card p-8 rounded-2xl shadow-xl border border-gray-700/60 hover:border-primary/40 transition-all duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-2">Operation Supervisor - Lab Operation</h3>
+                            <h4 class="text-primary text-lg mb-4">Metropolis Healthcare Limited, Meerut</h4>
+                            <p class="text-gray-400 mb-6">Jan 2024 - May 2025</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Managed day-to-day laboratory operations and team supervision</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Oversaw quality control, inventory management, and instrument monitoring</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Prepared SOPs and ensured compliance with quality standards</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-12 timeline-item">
+                        <div class="timeline-connector"></div>
+                        <div class="glass-card p-8 rounded-2xl shadow-xl border border-gray-700/60 hover:border-primary/40 transition-all duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-2">Senior Executive Officer - Lab Operation</h3>
+                            <h4 class="text-primary text-lg mb-4">Thyroxare Technology Ltd., Lucknow</h4>
+                            <p class="text-gray-400 mb-6">Dec 2022 - Jan 2025</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Managed laboratory operations and workflow optimization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Implemented quality assurance and control procedures</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Monitored turnaround time (TAT) and managed laboratory staff</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-12 timeline-item">
+                        <div class="glass-card p-8 rounded-2xl shadow-xl border border-gray-700/60 hover:border-primary/40 transition-all duration-300">
+                            <h3 class="text-2xl font-bold text-white mb-2">Scientific Officer</h3>
+                            <h4 class="text-primary text-lg mb-4">Narayana Diagnostics Ltd, Lucknow</h4>
+                            <p class="text-gray-400 mb-6">May 2020 - Dec 2022</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Handled laboratory equipment and performed quality control procedures</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Conducted calibration and maintenance of laboratory instruments</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-accent mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span class="text-gray-300">Managed inventory and stock maintenance for laboratory operations</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">Technical Skills & Expertise</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Left Column -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-primary">Diagnostic Equipment</h3>
+                    <div class="space-y-6">
+                        <!-- Roche -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Roche Diagnostics (E411, 601, 801, C411)</span>
+                                <span class="text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <!-- Autobio -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Autobio (A1000, A1860, A2000, A6200, BC60)</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- ERBA -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">ERBA (XL200, XL640, H560, H360, EC1105, Mini Cube)</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <!-- HPLC -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HPLC Systems (Biorad D10, Turbo, Lifotronic, Tosoh)</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-6 text-primary">Professional Skills</h3>
+                    <div class="space-y-6">
+                        <!-- Clinical Support -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Clinical Diagnostics & Application Support</span>
+                                <span class="text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <!-- Lab Operations -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Laboratory Operations & Workflow Optimization</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- Troubleshooting -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">IVD Equipment Troubleshooting & Maintenance</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                                                       <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <!-- Quality Control -->
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Quality Control & Compliance Management</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2.5">
+                                <div class="skill-bar bg-gradient-to-r from-primary to-accent h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Skills -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold mb-6 text-center text-primary">Additional Skills & Competencies</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="glass-card p-4 rounded-lg text-center hover:border-primary/40 transition-all">
+                        <i class="fas fa-users text-2xl mb-2 text-accent"></i>
+                        <p class="font-medium">User Training</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg text-center hover:border-primary/40 transition-all">
+                        <i class="fas fa-book text-2xl mb-2 text-accent"></i>
+                        <p class="font-medium">SOP Development</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg text-center hover:border-primary/40 transition-all">
+                        <i class="fas fa-chart-bar text-2xl mb-2 text-accent"></i>
+                        <p class="font-medium">Data Analysis</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg text-center hover:border-primary/40 transition-all">
+                        <i class="fas fa-project-diagram text-2xl mb-2 text-accent"></i>
+                        <p class="font-medium">Project Management</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">Publications & Research</span>
+            </h2>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Publication 1 -->
+                <div class="glass-card p-6 rounded-xl border border-gray-700 hover:border-primary/40 transition-all">
+                    <h3 class="text-xl font-bold text-white mb-2">"Evaluation of Diagnostic Equipment Performance in Clinical Settings"</h3>
+                    <p class="text-gray-400 mb-4">Journal of Clinical Laboratory Technology, 2023</p>
+                    <p class="text-gray-300">Research paper analyzing the performance characteristics of various immunoassay systems in high-volume clinical laboratories.</p>
+                    <a href="#" class="inline-block mt-4 text-primary hover:underline">Read Publication</a>
+                </div>
+
+                <!-- Publication 2 -->
+                <div class="glass-card p-6 rounded-xl border border-gray-700 hover:border-primary/40 transition-all">
+                    <h3 class="text-xl font-bold text-white mb-2">"Optimizing Workflow in Diagnostic Laboratories"</h3>
+                    <p class="text-gray-400 mb-4">International Journal of Medical Laboratory Science, 2022</p>
+                    <p class="text-gray-300">Case study on implementing process improvements to reduce turnaround time while maintaining quality standards.</p>
+                    <a href="#" class="inline-block mt-4 text-primary hover:underline">Read Publication</a>
+                </div>
+
+                <!-- Conference Presentations -->
+                <div class="glass-card p-6 rounded-xl border border-gray-700 hover:border-primary/40 transition-all">
+                    <h3 class="text-xl font-bold text-white mb-2">Conference Presentations</h3>
+                    <ul class="space-y-4 mt-4">
+                        <li>
+                            <h4 class="font-semibold text-gray-300">"Emerging Trends in Immunoassay Technology"</h4>
+                            <p class="text-gray-400 text-sm">National Conference on Clinical Diagnostics, 2023</p>
+                        </li>
+                        <li>
+                            <h4 class="font-semibold text-gray-300">"Quality Assurance in Point-of-Care Testing"</h4>
+                            <p class="text-gray-400 text-sm">International Symposium on Laboratory Medicine, 2022</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">Get In Touch</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-primary">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-accent mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Email</h4>
+                                    <a href="mailto:satyams1520@gmail.com" class="text-gray-400 hover:text-primary transition-colors">satyams1520@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-accent mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Phone</h4>
+                                    <a href="tel:+919793934651" class="text-gray-400 hover:text-primary transition-colors">+91 9793934651</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-accent mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-300">Location</h4>
+                                    <p class="text-gray-400">Ayodhya, Uttar Pradesh (224118)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4 text-primary">Professional Profiles</h3>
+                        <div class="flex space-x-6">
+                            <a href="http://www.linkedin.com/n/satyam-mishra-29a744202" target="_blank" class="text-gray-400 hover:text-primary transition-colors transform hover:scale-110">
+                                <i class="fab fa-linkedin text-3xl"></i>
+                                <span class="sr-only">LinkedIn</span>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors transform hover:scale-110">
+                                <i class="fab fa-researchgate text-3xl"></i>
+                                <span class="sr-only">ResearchGate</span>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-primary transition-colors transform hover:scale-110">
+                                <i class="fab fa-google text-3xl"></i>
+                                <span class="sr-only">Google Scholar</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="glass-card p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-6 text-primary">Send Me a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-300" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-300" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-300" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-gray-300" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3.5 bg-gradient-to-r from-primary to-secondary rounded-lg font-medium text-white hover:opacity-90 transition-all shadow-lg shadow-primary/30 hover:shadow-primary/40">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-2xl font-bold gradient-text mb-6">Satyam Mishra</a>
+                <p class="text-gray-400 text-center max-w-2xl mb-8">
+                    Clinical Application Specialist with expertise in diagnostic equipment and laboratory operations. 
+                    Passionate about improving healthcare through advanced diagnostic solutions.
+                </p>
+                <div class="flex space-x-6 mb-8">
+                    <a href="http://www.linkedin.com/n/satyam-mishra-29a744202" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="mailto:satyams1520@gmail.com" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                        <span class="sr-only">Email</span>
+                    </a>
+                    <a href="tel:+919793934651" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fas fa-phone text-xl"></i>
+                        <span class="sr-only">Phone</span>
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 w-full max-w-xs mb-6"></div>
+                <p class="text-gray-500 text-sm">
+                    &copy; 2024 Satyam Mishra. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary bg-opacity-90 backdrop-blur-sm rounded-full flex items-center justify-center text-white shadow-lg transition-all opacity-0 invisible hover:bg-opacity-100">
+        <i class="fas fa-arrow-up"></i>
+        <span class="sr-only">Back to top</span>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Active navigation link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Show/hide back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-bar');
+        
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Intersection Observer for skill bars animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
+apps-fileview.texmex_20250605.00_p3
+satyamPortfolio.html
+Displaying satyamPortfolio.html.
